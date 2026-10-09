@@ -1,0 +1,39 @@
+# Environments & Secrets
+venv/
+.venv/
+env/
+.env
+
+# Temporary data & Scraper downloads
+temp/*
+!temp/.gitkeep
+!temp/scraped/.gitkeep
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Operating System artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Internal Documentation & Archives (Excluded from Git)
+archive/
+docs/
+*.pdf
+PDD_and_Dev_Plan_v2.md
+

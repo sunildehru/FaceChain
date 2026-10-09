@@ -1,0 +1,25 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Explicit text files with LF line endings
+*.sh text eol=lf
+*.py text
+*.html text
+*.css text
+*.js text
+*.json text
+*.md text
+*.txt text
+*.yml text
+*.yaml text
+
+# Windows script files with CRLF line endings
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary media files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary

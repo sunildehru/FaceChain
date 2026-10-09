@@ -1,0 +1,23 @@
+# Core Web Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+python-multipart>=0.0.9
+
+# Computer Vision & Biometrics
+face_recognition>=1.3.0
+Pillow>=10.0.0
+numpy>=1.24.0
+setuptools<70.0.0
+
+# Live Web Scraping & Crawling
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.1.0
+
+# Blockchain & Cryptography
+web3>=6.15.0
+eth-tester>=0.10.0b4
+py-solc-x>=2.0.0
+
+# PDF & Cryptographic Export
+reportlab>=4.0.0
