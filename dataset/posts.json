@@ -1,0 +1,29 @@
+[
+  {
+    "post_id": "p001",
+    "username": "alice_travels",
+    "platform": "mock-social",
+    "image_path": "dataset/images/alice.jpg",
+    "caption": "Exploring the beautiful mountains today!",
+    "timestamp": "2026-08-15T10:32:00Z",
+    "post_url": "https://mock-social.local/post/p001"
+  },
+  {
+    "post_id": "p002",
+    "username": "bob_builder",
+    "platform": "mock-social",
+    "image_path": "dataset/images/bob.jpg",
+    "caption": "Just finished my new woodworking project.",
+    "timestamp": "2026-08-16T14:15:00Z",
+    "post_url": "https://mock-social.local/post/p002"
+  },
+  {
+    "post_id": "p003",
+    "username": "charlie_chef",
+    "platform": "mock-social",
+    "image_path": "dataset/images/charlie.jpg",
+    "caption": "Cooking up a storm for the weekend.",
+    "timestamp": "2026-08-17T18:45:00Z",
+    "post_url": "https://mock-social.local/post/p003"
+  }
+]
