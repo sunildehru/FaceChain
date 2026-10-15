@@ -1,0 +1,38 @@
+[
+  {
+    "id": "target_zuck",
+    "name": "Mark Zuckerberg",
+    "face_image": "dataset/presets/zuckerberg.jpg",
+    "monitored_urls": [
+      "https://en.wikipedia.org/wiki/Mark_Zuckerberg"
+    ],
+    "status": "ACTIVE_MONITORING",
+    "registered_at": "2026-10-22T10:00:00Z",
+    "last_scanned_at": null,
+    "sightings": []
+  },
+  {
+    "id": "target_satya",
+    "name": "Satya Nadella",
+    "face_image": "dataset/presets/satya_nadella.jpg",
+    "monitored_urls": [
+      "https://en.wikipedia.org/wiki/Satya_Nadella"
+    ],
+    "status": "ACTIVE_MONITORING",
+    "registered_at": "2026-10-22T11:00:00Z",
+    "last_scanned_at": null,
+    "sightings": []
+  },
+  {
+    "id": "target_sundar",
+    "name": "Sundar Pichai",
+    "face_image": "dataset/presets/sundar_pichai.jpg",
+    "monitored_urls": [
+      "https://en.wikipedia.org/wiki/Sundar_Pichai"
+    ],
+    "status": "ACTIVE_MONITORING",
+    "registered_at": "2026-10-22T12:00:00Z",
+    "last_scanned_at": null,
+    "sightings": []
+  }
+]
