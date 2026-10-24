@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 · Biometric Coordinate Not Found · FaceChain</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bone: #f3ecdd;
+            --bone-2: #e9dfca;
+            --paper: #ffffff;
+            --ink: #17130f;
+            --ink-2: #4a4239;
+            --ink-3: #776c5f;
+            --red: #e2452b;
+            --blue: #2c4bc4;
+            --green: #1e6b4f;
+            --yellow: #f4b42a;
+            
+            --font-display: 'Clash Display', 'Satoshi', sans-serif;
+            --font-body: 'Satoshi', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bone);
+            color: var(--ink);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            border: 8px solid var(--ink);
+            position: relative;
+        }
+
+        /* Top Header Strip */
+        .masthead {
+            background-color: var(--paper);
+            border-bottom: 2px solid var(--ink);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand-pill {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            background: var(--red);
+            color: var(--paper);
+            padding: 2px 6px;
+            border: 1.5px solid var(--ink);
+        }
+
+        .status-pill {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--red);
+            border: 1px solid var(--ink);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Main Error Container */
+        .error-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+
+        .error-card {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            box-shadow: 8px 8px 0 var(--ink);
+            max-width: 680px;
+            width: 100%;
+            padding: 36px;
+            position: relative;
+        }
+
+        .error-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .error-code {
+            font-family: var(--font-display);
+            font-size: 64px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .error-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .error-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--ink-2);
+            margin-bottom: 24px;
+            border-left: 3px solid var(--ink);
+            padding-left: 14px;
+        }
+
+        /* Telemetry Box */
+        .terminal-box {
+            background: var(--bone);
+            border: 1.5px solid var(--ink);
+            padding: 14px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            line-height: 1.5;
+            color: var(--ink);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .terminal-box::before {
+            content: "DIAGNOSTIC TELEMETRY";
+            position: absolute;
+            top: -9px;
+            left: 12px;
+            background: var(--ink);
+            color: var(--paper);
+            font-size: 8.5px;
+            font-weight: 700;
+            padding: 1px 6px;
+        }
+
+        /* Action Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 12px 20px;
+            border: 2px solid var(--ink);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--blue);
+            color: var(--paper);
+            box-shadow: 4px 4px 0 var(--ink);
+        }
+
+        .btn-primary:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .btn-primary:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--ink);
+        }
+
+        .btn-outline {
+            background-color: var(--paper);
+            color: var(--ink);
+            box-shadow: 4px 4px 0 var(--ink);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bone);
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        /* Footer */
+        .footer-strip {
+            border-top: 2px solid var(--ink);
+            background: var(--paper);
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--ink-3);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="masthead">
+        <a href="/" class="brand">
+            <span>FACECHAIN</span>
+            <span class="brand-pill">OSINT RADAR</span>
+        </a>
+        <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>EVM TESTNET DISCONNECT · 404</span>
+        </div>
+    </header>
+
+    <main class="error-container">
+        <div class="error-card">
+            <div class="error-tag">
+                <span>✦</span>
+                <span>ERROR CODE: HTTP_404_NOT_FOUND</span>
+            </div>
+
+            <div class="error-code">404</div>
+            <div class="error-title">Biometric Coordinate Not Found</div>
+
+            <p class="error-desc">
+                The requested URL, route coordinate, or facial asset does not exist within the FaceChain registry.
+                The cryptographic vector could not be resolved against the immutable smart contract ledger.
+            </p>
+
+            <div class="terminal-box">
+                <div>[ROUTER] URI: <span id="currentPath">/unresolved-route</span></div>
+                <div>[STATUS] HTTP_CODE: 404 Not Found</div>
+                <div>[CONSENSUS] In-memory EVM ledger confirmed: Zero records matching route hash.</div>
+                <div>[FAILSAFE] Auto-recovery protocol available via primary workspace.</div>
+            </div>
+
+            <div class="btn-group">
+                <a href="/" class="btn btn-primary">
+                    [ ✦ Return to Command Terminal ]
+                </a>
+                <a href="/api/status" class="btn btn-outline" target="_blank">
+                    [ Query EVM Node Telemetry ]
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-strip">
+        <div>FACECHAIN PROTOCOL · BAUHAUS CORE v2.5</div>
+        <div>ZERO-TRUST BIOMETRIC SYSTEM</div>
+    </footer>
+
+    <script>
+        document.getElementById('currentPath').innerText = window.location.pathname;
+    </script>
+</body>
+</html>
