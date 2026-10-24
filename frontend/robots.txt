@@ -1,0 +1,10 @@
+# FaceChain Production Crawler Policy
+User-agent: *
+Allow: /
+Allow: /static/
+Disallow: /temp/
+Disallow: /api/pipeline
+Disallow: /api/pipeline/stream
+Disallow: /api/osint/scan/
+
+Sitemap: /sitemap.xml

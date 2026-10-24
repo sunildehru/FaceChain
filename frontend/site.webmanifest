@@ -1,0 +1,21 @@
+{
+    "name": "FaceChain Biometric Registry & OSINT Radar",
+    "short_name": "FaceChain",
+    "description": "Autonomous facial vector resolution, 2D FFT deepfake forensics, and on-chain EVM cryptographic verification.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f3ecdd",
+    "theme_color": "#f3ecdd",
+    "icons": [
+        {
+            "src": "/static/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/static/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
