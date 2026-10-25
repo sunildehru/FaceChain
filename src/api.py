@@ -144,6 +144,18 @@ async def get_index():
     with open("frontend/index.html", "r", encoding="utf-8") as f:
         return f.read()
 
+@app.get("/styles.css")
+async def get_styles():
+    if os.path.exists("frontend/styles.css"):
+        return FileResponse("frontend/styles.css", media_type="text/css")
+    raise HTTPException(status_code=404, detail="Styles not found")
+
+@app.get("/app.js")
+async def get_app_js():
+    if os.path.exists("frontend/app.js"):
+        return FileResponse("frontend/app.js", media_type="application/javascript")
+    raise HTTPException(status_code=404, detail="Script not found")
+
 @app.get("/api/status")
 async def get_status():
     """Returns the live status of the EVM testnet and smart contract deployment."""

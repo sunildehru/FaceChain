@@ -13,6 +13,8 @@ from src.api import (
     sitemap_xml,
     site_webmanifest,
     healthz,
+    get_styles,
+    get_app_js,
     add_security_headers_middleware,
     custom_http_exception_handler
 )
@@ -62,6 +64,18 @@ class TestFaceChainProductionHygiene(unittest.TestCase):
         """Webmanifest route returns valid PWA metadata."""
         resp = asyncio.run(site_webmanifest())
         self.assertEqual(resp.media_type, "application/manifest+json")
+        self.assertTrue(os.path.exists(resp.path))
+
+    def test_styles_css_route(self):
+        """Styles route serves valid text/css stylesheet."""
+        resp = asyncio.run(get_styles())
+        self.assertEqual(resp.media_type, "text/css")
+        self.assertTrue(os.path.exists(resp.path))
+
+    def test_app_js_route(self):
+        """Client script route serves application/javascript."""
+        resp = asyncio.run(get_app_js())
+        self.assertEqual(resp.media_type, "application/javascript")
         self.assertTrue(os.path.exists(resp.path))
 
     def test_healthz_route(self):
