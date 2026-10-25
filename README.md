@@ -80,7 +80,7 @@ The parallelization engine isolates network I/O from compute-intensive neural ne
 
 | Metric | Sequential Baseline | FaceChain Concurrent Engine | Performance Delta |
 |:---|:---:|:---:|:---:|
-| **120-Image Batch Ingestion** | `14.20 s` | **`3.10 s`** | **4.58× Speedup** ⚡ |
+| **120-Image Batch Ingestion** | `14.20 s` | **`3.10 s`** | **4.58× Speedup** |
 | **Throughput (Images / sec)** | `8.45 img/s` | **`38.71 img/s`** | **+358% Throughput** |
 | **Worker Concurrency** | 1 (Blocking) | **8 Bounded Workers (Semaphore)** | **Optimized I/O Saturation** |
 | **Network Throttling** | Static sleep | **Adaptive Token Bucket Pacing** | **Zero Rate-Limit Drops** |
@@ -159,7 +159,9 @@ FaceChain generates downloadable forensic certificates on demand directly from m
 ```
 FaceChain/
 ├── frontend/
-│   ├── index.html               # Bauhaus Neo-Brutalist dashboard & OSINT console
+│   ├── index.html               # Semantic dashboard & OSINT console layout
+│   ├── styles.css               # Architectural styling and typography system
+│   ├── app.js                   # Client-side telemetry, SSE parser and view router
 │   ├── 404.html                 # Hardened, zero-leakage 404 error page
 │   ├── screenshot.png           # Live hero dashboard capture
 │   ├── screenshot_workspace.png # Biometric verification workspace capture
@@ -308,4 +310,4 @@ OK
 
 ## 11. License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.

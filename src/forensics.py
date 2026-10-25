@@ -23,17 +23,15 @@ def analyze_facial_liveness_and_deepfake(image_path: str) -> Dict[str, Any]:
         gray_arr = np.array(gray_img, dtype=np.float32)
         rgb_arr = np.array(rgb_img, dtype=np.float32)
         
-        # 1. Spatial Variance (Laplacian edge sharpness)
-        # Approximate discrete Laplacian convolution
+        # Spatial variance via discrete Laplacian convolution
         kernel = np.array([[0, 1, 0], [1, -4, 1], [0, 1, 0]], dtype=np.float32)
         h, w = gray_arr.shape
         if h > 8 and w > 8:
-            # Subsample if large for rapid analysis
+            # Subsample large inputs for consistent throughput
             step_y = max(1, h // 256)
             step_x = max(1, w // 256)
             sub_gray = gray_arr[::step_y, ::step_x]
             
-            # Simple 2D convolution for edge variance
             edges = (
                 sub_gray[:-2, 1:-1] + sub_gray[2:, 1:-1] +
                 sub_gray[1:-1, :-2] + sub_gray[1:-1, 2:] -
@@ -43,12 +41,12 @@ def analyze_facial_liveness_and_deepfake(image_path: str) -> Dict[str, Any]:
         else:
             laplacian_var = 150.0
 
-        # 2. 2D Fast Fourier Transform (FFT) Power Spectrum Analysis
+        # Frequency domain analysis via 2D FFT
         fft2 = np.fft.fft2(gray_arr)
         fft_shift = np.fft.fftshift(fft2)
         magnitude_spectrum = np.abs(fft_shift)
         
-        # Calculate ratio of high-frequency energy to total spectral energy
+        # High-frequency radial energy ratio
         cy, cx = h // 2, w // 2
         r_cutoff = min(cy, cx) // 3
         
@@ -60,9 +58,7 @@ def analyze_facial_liveness_and_deepfake(image_path: str) -> Dict[str, Any]:
         high_freq_energy = float(np.sum(magnitude_spectrum[high_freq_mask]))
         spectral_ratio = high_freq_energy / total_energy
         
-        # 3. Dynamic Liveness & Deepfake Risk Scoring
-        # Natural photographic portraits have smooth spectral rolloff and balanced Laplacian variance.
-        # AI/Synthetic generations often exhibit anomalous high-frequency spikes or unnaturally flat textures.
+        # Photometric consistency scoring
         is_synthetic_spectrum = (spectral_ratio > 0.88 or spectral_ratio < 0.25)
         is_abnormal_sharpness = (laplacian_var < 40.0 or laplacian_var > 4500.0)
         

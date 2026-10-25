@@ -290,7 +290,7 @@ def search_google_profiles_and_thumbnails(query_text: str, max_results: int = 8)
         session.headers.update(GOOGLE_SEARCH_HEADERS)
         session.cookies.set("SOCS", "CAESHAgBEhJnd3NfMjAyMzA4MTAtMF9SQzIaAmVuIAEaBgiA_LmnBg", domain=".google.com")
 
-        # 1. Google Web Search (where the Images carousel appears beneath the top LinkedIn result)
+        # Google web search with image carousels
         web_url = f"https://www.google.com/search?q={urllib.parse.quote_plus(query_text)}&hl=en&num=10"
         resp = session.get(web_url, timeout=7)
         if resp.status_code == 200:
@@ -364,7 +364,7 @@ def search_google_profiles_and_thumbnails(query_text: str, max_results: int = 8)
                     "is_cached_profile": bool(thumb_src)
                 })
 
-        # 2. Google Images Search (tbm=isch) Mobile SSR (Guaranteed static SSR HTML with unblocked CDN thumbs)
+        # Google Images mobile SSR for unblocked thumbnails
         mobile_session = requests.Session()
         mobile_session.headers.update(GOOGLE_MOBILE_SEARCH_HEADERS)
         mobile_session.cookies.set("SOCS", "CAESHAgBEhJnd3NfMjAyMzA4MTAtMF9SQzIaAmVuIAEaBgiA_LmnBg", domain=".google.com")
@@ -411,7 +411,7 @@ def search_google_profiles_and_thumbnails(query_text: str, max_results: int = 8)
                         "is_cached_profile": True
                     })
 
-        # 3. Desktop Google Images script regex fallback
+        # Desktop script regex fallback
         if len(results) < max_results:
             regex_pairs = re.finditer(
                 r'\["(https://encrypted-tbn0\.gstatic\.com/images\?q=tbn:[^"]+)",\s*\d+,\s*\d+\].*?\["(https?://[^"]+)",\s*"([^"]*)"',

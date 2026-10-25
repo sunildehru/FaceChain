@@ -131,7 +131,7 @@ def generate_audit_certificate_pdf(
 
     story = []
 
-    # 1. Header Banner
+    # Header banner
     story.append(Paragraph("FACECHAIN ✦ CRYPTOGRAPHIC BIOMETRIC AUDIT CERTIFICATE", title_style))
     story.append(Spacer(1, 2))
     story.append(Paragraph("AUTONOMOUS FORENSIC IDENTITY RESOLUTION & ZERO-TRUST EVM ON-CHAIN PROOF", sub_style))
@@ -142,7 +142,7 @@ def generate_audit_certificate_pdf(
 
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#0F172A'), spaceAfter=8))
 
-    # 2. Executive Status Badge Bar
+    # Executive status badges
     status_data = [
         [
             Paragraph("<b>CRYPTOGRAPHIC STATUS:</b><br/><font color='#16A34A'><b>VERIFIED AUTHENTIC (COMMITTED ON-CHAIN)</b></font>", cell_lbl),
@@ -163,7 +163,7 @@ def generate_audit_certificate_pdf(
     story.append(t_status)
     story.append(Spacer(1, 8))
 
-    # 3. Section: Subject Identity & Cryptographic Fingerprint
+    # Identity and cryptographic digest
     story.append(Paragraph("1. SUBJECT IDENTITY & CANONICAL CRYPTOGRAPHIC FINGERPRINT", sec_title))
     story.append(Spacer(1, 3))
 
@@ -192,7 +192,7 @@ def generate_audit_certificate_pdf(
     story.append(t_ident)
     story.append(Spacer(1, 8))
 
-    # 4. Section: Forensic Liveness & Photometric Deepfake Diagnostics
+    # Forensic liveness and spectral analysis
     story.append(Paragraph("2. FORENSIC PHOTOMETRIC LIVENESS & DEEPFAKE SPECTRAL ANALYSIS", sec_title))
     story.append(Spacer(1, 3))
 
@@ -231,7 +231,7 @@ def generate_audit_certificate_pdf(
     story.append(t_forensic)
     story.append(Spacer(1, 8))
 
-    # 5. Section: Biometric Metric Diagnostics & Sighting Accounting
+    # Biometric metric diagnostics
     story.append(Paragraph("3. BIOMETRIC VECTOR METRIC DIAGNOSTICS & SIGHTING ACCOUNTING", sec_title))
     story.append(Spacer(1, 3))
 
@@ -271,7 +271,7 @@ def generate_audit_certificate_pdf(
     story.append(t_bio)
     story.append(Spacer(1, 8))
 
-    # 6. Section: Ethereum Blockchain On-Chain Ledger Anchor
+    # On-chain ledger receipt
     story.append(Paragraph("4. ETHEREUM SMART CONTRACT ON-CHAIN LEDGER ANCHOR RECEIPT", sec_title))
     story.append(Spacer(1, 3))
 
@@ -302,7 +302,7 @@ def generate_audit_certificate_pdf(
     story.append(t_chain)
     story.append(Spacer(1, 10))
 
-    # 7. Verification Verification Footer Bar
+    # Verification notice footer
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#CBD5E1'), spaceAfter=6))
     footer_text = Paragraph(
         "<b>VERIFICATION NOTICE:</b> This certificate is a cryptographic representation of immutable on-chain state. "

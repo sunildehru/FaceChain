@@ -316,7 +316,7 @@ let currentRecord = null;
             const nameInput = document.getElementById('subjectNameInput');
             if (nameInput) nameInput.value = preset.name;
 
-            // 1. Populate Target URLs
+            // Populate target URLs
             const container = document.getElementById('urlInputContainer');
             container.innerHTML = '';
             preset.target_urls.forEach((url, idx) => {
@@ -329,7 +329,7 @@ let currentRecord = null;
                 container.appendChild(row);
             });
 
-            // 2. Fetch and Stage Query Face Photo automatically
+            // Stage query reference portrait
             logConsole('PRESET', `Loading offline reference portrait for ${preset.name}...`, 'amber');
             try {
                 const res = await fetch(preset.image_url);

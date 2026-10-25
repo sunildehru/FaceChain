@@ -143,7 +143,7 @@ def stream_search_pipeline(
             if not sample_image:
                 return
 
-            # 1. Base64 Data URI thumbnail handling (common in Google Search carousels)
+            # Decode inline base64 thumbnails
             if sample_image.startswith("data:image/") and ";base64," in sample_image:
                 try:
                     b64_content = sample_image.split(";base64,")[1]
@@ -164,7 +164,7 @@ def stream_search_pipeline(
                 except Exception as e:
                     print(f"[Searcher Producer] Base64 decode error for {target_url}: {e}")
 
-            # 2. HTTP CDN thumbnail handling (Google encrypted-tbn0.gstatic.com, Bing ts*.mm.bing.net, etc.)
+            # Fetch remote CDN thumbnails
             elif sample_image.startswith("http"):
                 try:
                     resp = session.get(sample_image, timeout=6)

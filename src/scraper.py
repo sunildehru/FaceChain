@@ -177,7 +177,7 @@ def _scrape_page_worker(
     else:
         content_root = soup.find('main') or soup.find('article') or soup.find('div', id='content') or soup
 
-    # 1. Collect candidate images
+    # Collect media candidates
     candidate_img_urls = []
     seen_img_urls = set()
     for img in content_root.find_all('img'):
@@ -189,13 +189,13 @@ def _scrape_page_worker(
             seen_img_urls.add(full_img_url)
             candidate_img_urls.append(full_img_url)
 
-    # Parallel image downloading (max 3 concurrent image download threads to prevent CDN throttles)
+    # Parallel image downloading with bounded worker pool
     downloaded_images = []
     if candidate_img_urls:
         with ThreadPoolExecutor(max_workers=3) as img_pool:
             futures = [
                 img_pool.submit(_download_single_image, session, img_url, url_cleaned, output_dir, idx)
-                for idx, img_url in enumerate(candidate_img_urls[:20]) # Limit to top 20 photos per page
+                for idx, img_url in enumerate(candidate_img_urls[:20])
             ]
             for f in as_completed(futures):
                 res = f.result()
@@ -204,7 +204,7 @@ def _scrape_page_worker(
                     if on_image_downloaded:
                         on_image_downloaded(res)
 
-    # 2. Extract valid article links
+    # Extract internal article links
     extracted_links = []
     seen_links = set()
     for a in content_root.find_all('a'):
