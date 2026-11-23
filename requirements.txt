@@ -17,6 +17,7 @@ lxml>=5.1.0
 # Blockchain & Cryptography
 web3>=6.15.0
 eth-tester>=0.10.0b4
+py-evm>=0.10.0b1
 py-solc-x>=2.0.0
 
 # PDF & Cryptographic Export

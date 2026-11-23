@@ -43,8 +43,8 @@ def sanitize_filename(filename: str) -> str:
     if not filename:
         return "query_image.jpg"
 
-    # Strip directory path
-    base = os.path.basename(filename)
+    # Strip directory path (cross-platform / and \)
+    base = re.split(r'[\\/]', filename)[-1]
     
     # Strip null bytes and control chars
     base = re.sub(r'[\x00-\x1f\x7f]', '', base)
@@ -141,10 +141,10 @@ def sanitize_text_for_export(val: Any, max_len: int = 256) -> str:
         
     s = str(val).strip()
     
-    # Neutralize any local Windows/Unix absolute machine paths
-    s = re.sub(r'[A-Za-z]:\\[^"\'\s<>]+', lambda m: os.path.basename(m.group(0)), s)
-    s = re.sub(r'/(?:Users|home|root)/[^"\'\s<>]+', lambda m: os.path.basename(m.group(0)), s)
-    s = re.sub(r'temp[\\/][^"\'\s<>]+', lambda m: os.path.basename(m.group(0)), s)
+    # Neutralize any local Windows/Unix absolute machine paths (cross-platform separator handling)
+    s = re.sub(r'[A-Za-z]:\\[^"\'\s<>]+', lambda m: re.split(r'[\\/]', m.group(0))[-1], s)
+    s = re.sub(r'/(?:Users|home|root)/[^"\'\s<>]+', lambda m: re.split(r'[\\/]', m.group(0))[-1], s)
+    s = re.sub(r'temp[\\/][^"\'\s<>]+', lambda m: re.split(r'[\\/]', m.group(0))[-1], s)
     
     # Strip non-printable ASCII control characters (keep space and standard punctuation)
     s = re.sub(r'[\x00-\x1f\x7f]', '', s)
@@ -174,6 +174,6 @@ def sanitize_record_for_export(record: Dict[str, Any]) -> Dict[str, Any]:
     if "image_path" in clean and clean["image_path"]:
         img_p = clean["image_path"]
         if not img_p.startswith("http"):
-            clean["image_path"] = os.path.basename(img_p)
+            clean["image_path"] = re.split(r'[\\/]', img_p)[-1]
             
     return clean
